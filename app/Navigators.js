@@ -35,9 +35,8 @@ export const Tabs = TabNavigator({
   Home: {
     screen: AppStack,
     navigationOptions: {
-      tabBar: {
-        label: "Home",
-        icon: ({ tintColor }) => (
+      tabLabel: "Home",
+      tabIcon: ({ tintColor }) => (
           <FontAwesome
             style={{ alignSelf: "center" }}
             name="ios-home"
@@ -45,7 +44,6 @@ export const Tabs = TabNavigator({
             color={tintColor}
           />
         )
-      }
     }
   }
 });
