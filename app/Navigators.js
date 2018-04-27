@@ -1,17 +1,17 @@
 import React from "react";
-import Icon from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import { Text } from "react-native";
 import {
-  StackNavigator,
+  StackNavigator,   
   DrawerNavigator,
   TabNavigator
 } from "react-navigation";
 
 //## APP COMPONENTS ###//
-import HomeScreen from "./components/HomeScreen";
-import LoginScreen from "./components/LoginScreen";
-import SignUpScreen from "./components/SignUpScreen";
-import AuthLoadingScreen from "./components/AuthLoadingScreen";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import SignUpScreen from "./screens/SignUpScreen";  
+import AuthLoadingScreen from "./screens/AuthLoadingScreen";
 
 export const AuthStack = StackNavigator({
   AuthLoadingScreen: {
@@ -38,7 +38,7 @@ export const Tabs = TabNavigator({
       tabBar: {
         label: "Home",
         icon: ({ tintColor }) => (
-          <Icon
+          <FontAwesome
             style={{ alignSelf: "center" }}
             name="ios-home"
             size={28}
@@ -56,7 +56,7 @@ export const Drawer = DrawerNavigator({
     navigationOptions: {
       drawerLabel: "Home",
       drawerIcon: ({ navigate }) => (
-        <Icon
+        <FontAwesome
           style={{ alignSelf: "flex-start" }}
           name="home"
           size={30}
