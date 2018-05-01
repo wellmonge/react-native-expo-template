@@ -1,10 +1,12 @@
 import React from "react";
-import { FontAwesome } from "@expo/vector-icons";
+import { PlatformIOS } from 'react-native';
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 import {
   StackNavigator,   
   DrawerNavigator,
-  TabNavigator
+  TabNavigator,
+  TabBarBottom
 } from "react-navigation";
 
 //## APP COMPONENTS ###//
@@ -31,22 +33,33 @@ export const AppStack = StackNavigator({
   }
 });
 
-export const Tabs = TabNavigator({
-  Home: {
-    screen: AppStack,
-    navigationOptions: {
-      tabLabel: "Home",
-      tabIcon: ({ tintColor }) => (
-          <FontAwesome
-            style={{ alignSelf: "center" }}
-            name="ios-home"
-            size={28}
-            color={tintColor}
-          />
-        )
-    }
+export const Tabs = TabNavigator(
+  {
+    Home: AppStack,
+    Setting: SettingsStack
+
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = `ios-home${focused ? '' : '-outline'}`;
+        }  
+        return <Ionicons name={iconName} size={30} color={tintColor} />;
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: 'black',
+      inactiveTintColor: 'gray',
+    },
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    swipeEnabled: false,
   }
-});
+);
 
 export const Drawer = DrawerNavigator({
   Home: {
