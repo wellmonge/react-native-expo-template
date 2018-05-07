@@ -10,10 +10,11 @@ import {
 } from "react-navigation";
 
 //## APP COMPONENTS ###//
-import HomeScreen from "./screens/HomeScreen";
-import LoginScreen from "./screens/LoginScreen";
-import SignUpScreen from "./screens/SignUpScreen";  
-import AuthLoadingScreen from "./screens/AuthLoadingScreen";
+import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';  
+import AuthLoadingScreen from './screens/AuthLoadingScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 export const AuthStack = StackNavigator({
   AuthLoadingScreen: {
@@ -33,10 +34,16 @@ export const AppStack = StackNavigator({
   }
 });
 
+export const SettingsStack = StackNavigator({
+  SettingsScreen:{ 
+    screen: SettingsScreen
+  }
+});
+
 export const Tabs = TabNavigator(
   {
     Home: AppStack,
-    Setting: SettingsStack
+    Settings: SettingsStack
 
   },
   {
@@ -46,7 +53,9 @@ export const Tabs = TabNavigator(
         let iconName;
         if (routeName === 'Home') {
           iconName = `ios-home${focused ? '' : '-outline'}`;
-        }  
+        } else if(routeName === 'Settings') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`;
+        }
         return <Ionicons name={iconName} size={30} color={tintColor} />;
       },
     }),
