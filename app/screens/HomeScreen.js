@@ -1,74 +1,24 @@
 import React, { Component } from "react";
 import { View, Text, ListView, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-
-var _data = [
-  {
-    rowID: 0,
-    dataEntrega: "14/04/2018",
-    cliente: {
-      nome: "Camilo Arruda",
-      cpf: "987.384.798-58",
-      telefone: "65 99663-6343",
-      idade: 30,
-      rua: "Trinta e Oito",
-      sexo: "Feminino",
-      bairro: "Morada do Ouro"
-    },
-    entregador: "Maicon Luiz",
-    showDetail: false
-  },
-  {
-    rowID: 1,
-    dataEntrega: "14/04/2018",
-    cliente: {
-      nome: "Camilo Arruda",
-      cpf: "987.384.798-58",
-      telefone: "65 99663-6343",
-      idade: 30,
-      rua: "Trinta e Oito",
-      sexo: "Feminino",
-      bairro: "Morada do Ouro"
-    },
-    entregador: "Maicon Luiz",
-    showDetail: false
-  },
-  {
-    rowID: 2,
-    dataEntrega: "14/04/2018",
-    cliente: {
-      nome: "Camilo Arruda",
-      cpf: "987.384.798-58",
-      telefone: "65 99663-6343",
-      idade: 30,
-      rua: "Trinta e Oito",
-      sexo: "Feminino",
-      bairro: "Morada do Ouro"
-    },
-    entregador: "Maicon Luiz",
-    showDetail: false
-  }
-];
+import styles from './HomeStyle';
+import _data from './dummyData';
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      headerStyle: {
-        backgroundColor: "#fff"
-      },
+      headerStyle: styles.headerStyle,
       headerTintColor: "#000",
-      headerTitleStyle: {
-        fontWeight: "bold"
-      },
+      headerTitleStyle: styles.headerTitleStyle,
       headerLeft: (
         <TouchableOpacity
-          style={{ padding: 20 }}
+          style={styles.drawerToggle}
           onPress={() => {
             navigation.navigate("DrawerToggle");
           }}
         >
           <FontAwesome
-            style={{ alignSelf: "center" }}
+            style={styles.iconAlign}
             name="bars"
             size={28}
             color="#333333"
@@ -94,8 +44,6 @@ class Home extends Component {
 
   _hashCode = str => {
     let hash = 15;
-    console.log(hash);
-
     for (let index = str.length - 1; index >= 0; index--) {
       hash = (hash << 5) - hash + str.charCodeAt(11);
     }
@@ -127,27 +75,13 @@ class Home extends Component {
     return (
       <View>
         <View
-          style={{
-            flex: 1,
-            padding: 20,
-            borderTopWidth: 1,
-            marginRight: 10,
-            marginLeft: 10,
-            flexDirection: "column",
-            backgroundColor: "#fff",
-            justifyContent: "space-between"
-          }}
+          style={styles.containerDetail}
         >
           <View
-            style={{
-              flex: 1,
-              padding: 10,
-              backgroundColor: "#fff",
-              justifyContent: "space-between"
-            }}
+            style={styles.cardDetail}
           >
             <FontAwesome
-              style={{ alignSelf: "center" }}
+              style={styles.iconAlign}
               name="id-card"
               size={60}
               color="#333333"
@@ -155,27 +89,17 @@ class Home extends Component {
           </View>
 
           <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between"
-            }}
+            style={styles.containerInfo}
           >
             <View
-              style={{
-                justifyContent: "space-between",
-                flexDirection: "column"
-              }}
+              style={styles.lineInfo}
             >
               <Text>CPF: {rowData.cliente.cpf}</Text>
               <Text>Idade: {rowData.cliente.idade}</Text>
               <Text>Sexo: {rowData.cliente.sexo}</Text>
             </View>
             <View
-              style={{
-                justifyContent: "space-between",
-                flexDirection: "column"
-              }}
+              style={styles.lineInfo}
             >
               <Text>Telefone: {rowData.cliente.telefone}</Text>
               <Text>Rua: {rowData.cliente.rua}</Text>
@@ -184,27 +108,14 @@ class Home extends Component {
           </View>
         </View>
         <View
-          style={{
-            flex: 1,
-            padding: 20,
-            borderTopWidth: 1,
-            marginRight: 10,
-            marginLeft: 10,
-            flexDirection: "column",
-            backgroundColor: "#fff",
-            justifyContent: "space-between"
-          }}
+          style={styles.containerDetail}
         >
           <View
-            style={{
-              flex: 1,
-              padding: 10,
-              alignSelf: "center",
-              backgroundColor: "#fff",
-              justifyContent: "space-between"
-            }}
+            style={cstyles.cardSecSection}
           >
-            <FontAwesome name="shopping-cart" size={60} color="#333333" />
+            <FontAwesome 
+              name="shopping-cart" 
+              size={60} color="#333333" />
 
             <Text>10 Chips OI</Text>
 
@@ -213,10 +124,7 @@ class Home extends Component {
             <Text>30 Chips OI</Text>
           </View>
           <View
-            style={{
-              justifyContent: "space-between",
-              flexDirection: "row"
-            }}
+            style={styles.lineSecSection}
           >
             <Text>For/pagto.: </Text>
             <Text>Valor: </Text>
