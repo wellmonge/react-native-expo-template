@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, ListView, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import styles from './HomeStyle';
-import _data from './dummyData';
+import _data from './models/dummyData';
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -132,13 +132,7 @@ class Home extends Component {
           </View>
         </View>
         <TouchableOpacity
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-around",
-            backgroundColor: "#27ae60",
-            marginRight: 10,
-            marginLeft: 10
-          }}
+          style={styles.confirmButton}
           onPress={() => {
             this.props.navigation.navigate("RotasScreen");
           }}
