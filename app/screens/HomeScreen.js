@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {View, Text, TouchableOpacity} from "react-native";
 import {FontAwesome} from "@expo/vector-icons";
 import styles from './HomeStyle';
-import _data from './models/dummyData';
+import _data from '../models/dummyData';
 import CustomListView from "../components/CustomListView";
 
 class Home extends Component {

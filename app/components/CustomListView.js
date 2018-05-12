@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, ListView, TouchableOpacity } from "react-native";
+import {FontAwesome} from "@expo/vector-icons";
 
 class CustomListView extends Component {
     constructor(props) {
@@ -170,7 +171,7 @@ class CustomListView extends Component {
             style={{
             backgroundColor: "#c0392b"
         }}
-            dataSource={this.props.dataSource}
+            dataSource={this.state.dataSource}
             renderRow={this.renderRow}/>);
     }
 }
