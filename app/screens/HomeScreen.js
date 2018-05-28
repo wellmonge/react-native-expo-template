@@ -1,9 +1,15 @@
 import React, {Component} from "react";
 import {View, Text, TouchableOpacity} from "react-native";
 import {FontAwesome} from "@expo/vector-icons";
-import styles from './HomeStyle';
 import _data from '../models/dummyData';
 import CustomListView from "../components/CustomListView";
+
+const styles = {
+    iconAlign: { alignSelf: "center"},
+    drawerToggle: { padding: 20 },
+    headerStyle: { backgroundColor: "#fff"},
+    headerTitleStyle: {fontWeight: "bold"},
+}
 
 class Home extends Component {
     static navigationOptions = ({navigation}) => {
@@ -23,8 +29,15 @@ class Home extends Component {
         this.state = {};
     }
 
+    navigateTo = () => {
+        this
+            .props
+            .navigation
+            .navigate("RotasScreen");
+    }
+
     render() {
-        return (<CustomListView data={_data}/>);
+        return (<CustomListView data={_data} navigateTo />);
     }
 }
 
