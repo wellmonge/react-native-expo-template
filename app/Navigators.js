@@ -76,7 +76,6 @@ export const Tabs = TabNavigator(
 export const Drawer = DrawerNavigator(
   {
     Home: HomeStack,
-    Settings: SettingsStack
   },    
   {
     navigationOptions: {
