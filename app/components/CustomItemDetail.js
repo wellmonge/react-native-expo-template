@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { View, Text, ListView, TouchableOpacity } from "react-native";
+import React from 'react';
+import { View, Text, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 const styles = {
@@ -67,8 +67,7 @@ const CustomItemDetail = (props) => {
     const rowData = props.rowData;
     if (rowData.showDetail == false) 
             return null;
-    
-    const navigateTo = props.navigateTo;
+
     return (
         <View>
             <View style={styles.containerDetail}>
@@ -110,7 +109,7 @@ const CustomItemDetail = (props) => {
             </View>
             <TouchableOpacity
                 style={styles.confirmButton}
-                onPress={navigateTo}>
+                onPress={props.navigateTo}>
                 <FontAwesome
                     style={styles.icon2}
                     name="motorcycle"

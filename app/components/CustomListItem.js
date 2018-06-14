@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { View,Text, TouchableOpacity  } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import CustomItemDetail from "./CustomItemDetail";
@@ -63,7 +63,8 @@ const CustomListItem = (props) => {
                             color="#333333"/>
                     </View>
                 </TouchableOpacity>
-                <CustomItemDetail rowData={rowData} />
+                <CustomItemDetail rowData={rowData}
+                            navigateTo={props.navigateTo} />
             </View>
             
         </View>

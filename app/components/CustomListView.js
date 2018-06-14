@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import { View, Text, ListView, TouchableOpacity } from "react-native";
-import {FontAwesome} from "@expo/vector-icons";
+import { ListView } from "react-native";
+import _data from '../models/dummyData';
 import CustomListItem from "./CustomListItem";
 
 class CustomListView extends Component {
@@ -10,13 +10,10 @@ class CustomListView extends Component {
             rowHasChanged: (r1, r2) => r1 !== r2
         });
         this.state = {
+            display:false,
             dataSource: ds.cloneWithRows(this.props.data)
         };
     }
-
-    openDetail = () => {
-        this.setState({display: true});
-    };
 
     _pressRow = (rowData, rowID) => {
         _data[rowID].showDetail = !rowData.showDetail;
@@ -28,15 +25,22 @@ class CustomListView extends Component {
         });
     };
 
+    navigateTo = () => {
+        alert("teste")
+        this.props
+            .navigation
+            .navigate("SettingsScreen");
+ 
+    }
+
     renderRow = (rowData, sectionID, rowID, highlightRow) => {
         return (
             <CustomListItem 
-                rowData 
-                sectionID 
-                rowID 
-                highlightRow 
-                _pressRow={this._pressRow} 
-                openDetail={this.openDetail}
+                rowData={rowData}
+                sectionID={sectionID}
+                rowID ={rowID}
+                highlightRow={highlightRow}
+                _pressRow={this._pressRow.bind(this, rowData, rowID)}
                 navigateTo={this.navigateTo} />
         );
     };

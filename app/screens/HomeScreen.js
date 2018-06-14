@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {View, Text, TouchableOpacity} from "react-native";
+import {TouchableOpacity} from "react-native";
 import {FontAwesome} from "@expo/vector-icons";
 import _data from '../models/dummyData';
 import CustomListView from "../components/CustomListView";
@@ -29,15 +29,8 @@ class Home extends Component {
         this.state = {};
     }
 
-    navigateTo = () => {
-        this
-            .props
-            .navigation
-            .navigate("RotasScreen");
-    }
-
     render() {
-        return (<CustomListView data={_data} navigateTo />);
+        return (<CustomListView data={_data} navigation={this.props.navigation} />);
     }
 }
 

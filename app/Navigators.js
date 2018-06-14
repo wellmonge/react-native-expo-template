@@ -28,9 +28,12 @@ export const AuthStack = StackNavigator({
   }
 });
 
-export const AppStack = StackNavigator({
+export const HomeStack = StackNavigator({
   HomeScreen: {
     screen: HomeScreen
+  },
+  SettingsScreen:{ 
+    screen: SettingsScreen
   }
 });
 
@@ -42,7 +45,7 @@ export const SettingsStack = StackNavigator({
 
 export const Tabs = TabNavigator(
   {
-    Home: AppStack,
+    Home: HomeStack,
     Settings: SettingsStack
 
   },
@@ -70,9 +73,12 @@ export const Tabs = TabNavigator(
   }
 );
 
-export const Drawer = DrawerNavigator({
-  Home: {
-    screen: AppStack,
+export const Drawer = DrawerNavigator(
+  {
+    Home: HomeStack,
+    Settings: SettingsStack
+  },    
+  {
     navigationOptions: {
       drawerLabel: "Home",
       drawerIcon: ({ navigate }) => (
@@ -84,5 +90,4 @@ export const Drawer = DrawerNavigator({
         />
       )
     }
-  }
 });
