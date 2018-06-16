@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { StatusBar, View, Platform } from "react-native";
 import { Provider, connect } from "react-redux";
+import { SwitchNavigator, StackNavigator } from 'react-navigation'; 
 
 //## APP COMPONENTS ###//
-import { Drawer, Tabs } from "./app/Navigators";
+import { Drawer,Tabs, AuthStack } from "./app/Navigators";
 // import { Store } from "./app/SetupStore";
 
 class App extends Component {
@@ -15,4 +16,13 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+export default SwitchNavigator(
+  {
+    App: App,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'Auth',
+  }
+);

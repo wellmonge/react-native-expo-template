@@ -12,15 +12,23 @@ const styles = {
 }
 
 class Home extends Component {
-    static navigationOptions = ({navigation}) => {
-        return {headerStyle: styles.headerStyle, headerTintColor: "#000", headerTitleStyle: styles.headerTitleStyle, headerLeft: (
-                <TouchableOpacity
-                    style={styles.drawerToggle}
-                    onPress={() => {
-                    navigation.navigate("DrawerToggle");
-                }}>
-                    <FontAwesome style={styles.iconAlign} name="bars" size={28} color="#333333"/>
-                </TouchableOpacity>
+    static navigationOptions = ({ navigation }) => {
+        return {
+                headerStyle: styles.headerStyle, 
+                headerTintColor: "#000", 
+                headerTitleStyle: styles.headerTitleStyle, 
+                headerLeft: (
+                            <TouchableOpacity
+                                style={styles.drawerToggle}
+                                onPress={() => {
+                                navigation.navigate("DrawerToggle");
+                            }}>
+                                <FontAwesome 
+                                    style={styles.iconAlign} 
+                                    name="bars" 
+                                    size={28} 
+                                    color="#333333"/>
+                            </TouchableOpacity>
             )};
     };
 

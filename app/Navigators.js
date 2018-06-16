@@ -3,7 +3,7 @@ import { PlatformIOS } from 'react-native';
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 import {
-  StackNavigator,   
+  StackNavigator, 
   DrawerNavigator,
   TabNavigator,
   TabBarBottom
