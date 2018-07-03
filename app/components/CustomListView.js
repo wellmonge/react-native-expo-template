@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { View, Text, ListView, TouchableOpacity } from "react-native";
 import {FontAwesome} from "@expo/vector-icons";
+
+import _data from '../models/dummyData';
 import CustomListItem from "./CustomListItem";
 
 class CustomListView extends Component {
@@ -19,7 +21,7 @@ class CustomListView extends Component {
     };
 
     _pressRow = (rowData, rowID) => {
-        _data[rowID].showDetail = !rowData.showDetail;
+        this.props.data[rowID].showDetail = !rowData.showDetail;
 
         this.setState({
             dataSource: new ListView.DataSource({
@@ -31,11 +33,11 @@ class CustomListView extends Component {
     renderRow = (rowData, sectionID, rowID, highlightRow) => {
         return (
             <CustomListItem 
-                rowData 
-                sectionID 
-                rowID 
-                highlightRow 
-                _pressRow={this._pressRow} 
+                rowData={rowData}
+                sectionID={sectionID}
+                rowID={rowID}
+                highlightRow={highlightRow}
+                _pressRow={this._pressRow.bind(this, rowData, rowID)} 
                 openDetail={this.openDetail}
                 navigateTo={this.navigateTo} />
         );
