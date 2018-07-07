@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Platform, TouchableOpacity } from "react-native";
+import { View, Platform, TouchableOpacity, } from "react-native";
 import {FontAwesome} from "@expo/vector-icons";
-import { MapView, Constants, Location, Permissions } from 'expo';
+import { MapView, Constants, Location, Permissions, Marker } from 'expo';
+
+import { Loading } from '../components/Loading.js';
 
 const styles = {
   iconAlign: { alignSelf: "center"},
@@ -103,6 +105,7 @@ class RoutesScreen extends Component {
       this.setState({
         errorMessage: 'Permission to access location was denied',
       });
+    Alert
     }
 
     let location = await Location.getCurrentPositionAsync({});
@@ -120,13 +123,31 @@ class RoutesScreen extends Component {
     }
   }
 
-  componentDidUpdate(){
-    let text = 'Waiting..';
-    if (this.state.errorMessage) {
-      text = this.state.errorMessage;
-    } else if (this.state.location) {
-      text = JSON.stringify(this.state.location);
+  onUserLocationChange (oordinate){
+    alert(JSON.stringify(coordinate))
+  }
+
+  onPressMap(coordinate){
+    alert(JSON.stringify(coordinate))
+  }
+
+  onMapReady(){
+    // alert("isloaded")
+  }
+
+  renderMarker(){
+    const location = this.state.location;
+
+    if (location && location.coords){
+      return(
+      <Marker
+        coordinate={{latitude: location.coords.latitude, longitude: location.coords.longitude}}
+        title={"marker.title"}
+        description={"marker.description"}
+      />);
+  
     }
+    return(null);
   }
 
   render() {
@@ -134,14 +155,20 @@ class RoutesScreen extends Component {
     return (<View    
               style={{
                 flex: 1,
-                backgroundColor: "#c0392b"
+                backgroundColor: "#c0392b",
               }}
             >
               <MapView
                 style={{ flex: 1 }}
                 initialRegion={this._getInitialRegion()}
                 region={this._getRegionLocation()}
-              />
+                onMapReady={this.onMapReady.bind(this)}
+                onPress={this.onPressMap.bind(this)} 
+                onUserLocationChange={this.onUserLocationChange.bind(this)} 
+              >
+                
+              </MapView>
+              
             </View>);
   }
 }
