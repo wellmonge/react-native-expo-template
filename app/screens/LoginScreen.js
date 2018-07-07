@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+
 import {
   View,
   Text,
   TouchableOpacity,
-  TextInput,AsyncStorage,
+  TextInput,
+  AsyncStorage,
 } from "react-native";
 
 
-import {FontAwesome} from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 class LoginScreen extends Component {
   static navigationOptions = {
@@ -22,9 +24,40 @@ class LoginScreen extends Component {
     };
   }
 
-  onUserChange(text) {}
+  _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@MySuperStore:auth');
+      if (value !== null) {
+        // We have data!!
+        //alert(value);
+      }
+     } catch (error) {
+       // Error retrieving data
+     }
+  }
 
-  onPasswordChange(text) {}
+  _storeData = async () => {
+    try {
+      
+      await AsyncStorage.setItem('@MySuperStore:auth', '{name:Wellinton Monge, email:wellinton@monge.com.br, password:1234}');
+    } catch (error) {
+      // Error saving data
+    }
+  }
+
+  componentDidMount(){
+    const test = this._storeData();
+    const test2 = this._retrieveData();
+    alert(JSON.stringify(test2));
+  }
+  
+  onUserChange(text) {
+    alert(text)
+  }
+
+  onPasswordChange(text) {
+    alert(text)
+  }
 
   onButtonPress = ()  => {
     this.props.navigation.navigate('App');

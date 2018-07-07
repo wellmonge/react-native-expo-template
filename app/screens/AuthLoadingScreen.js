@@ -15,13 +15,24 @@ class AuthLoadingScreen extends React.Component {
   };
   constructor(props) {
     super(props);
-    // this._bootstrapAsync();
+  }
+
+  _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@MySuperStore:auth');
+  
+      if (value !== null) {
+        this.props.navigation.navigate("App");
+      }else{
+        this.props.navigation.navigate("LoginScreen");
+      }
+     } catch (error) {
+      
+    }
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.props.navigation.navigate("LoginScreen");
-    }, 1500);
+     this._retrieveData();
   }
 
   render() {
