@@ -47,6 +47,12 @@ export const SettingsStack = StackNavigator({
   }
 });
 
+export const RoutesStack = StackNavigator({
+  RoutesScreen:{ 
+    screen: RoutesScreen
+  }
+});
+
 export const Tabs = TabNavigator(
   {
     Home: HomeStack,
@@ -80,17 +86,34 @@ export const Tabs = TabNavigator(
 export const Drawer = DrawerNavigator(
   {
     Home: HomeStack,
+    Settings: SettingsStack,
+    Routes: RoutesStack,
   },    
   {
-    navigationOptions: {
-      drawerLabel: "Home",
-      drawerIcon: ({ navigate }) => (
-        <FontAwesome
-          style={{ alignSelf: "flex-start" }}
-          name="home"
-          size={30}
-          color="#333333"
-        />
-      )
-    }
-});
+    navigationOptions: ({ navigation }) => ({      
+      drawerLabel: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        if (routeName === 'Home') {
+          return "Pedidos";
+        } else if(routeName === 'Settings') {
+          return "Configurações";
+        } else if(routeName === 'Routes') {
+          return "Rotas";
+        }
+      },
+      drawerIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName= "shopping-cart"
+        } else if(routeName === 'Settings') {
+          iconName= "cog"
+        }else if(routeName === 'Routes'){
+          iconName= "map"
+        }
+
+        return <FontAwesome style={{ alignSelf: "flex-start" }} name={iconName} size={30} color={tintColor} />;
+      },
+      
+    }),
+  });

@@ -102,33 +102,36 @@ class RoutesScreen extends Component {
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied',
-      });
-    Alert
+      // alert("setState")
+      // this.setState({
+      //   errorMessage: 'Permission to access location was denied',
+      // });
     }
 
     let location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
+    
+    if (location){
+      // alert("setState")
+      this.setState({ location });  
+    }
+
   };
 
 
   componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
-      this.setState({
-        errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
-      });
+      // this.setState({
+      //   errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
+      // });
     } else {
       this._getLocationAsync();
     }
   }
 
-  onUserLocationChange (oordinate){
-    alert(JSON.stringify(coordinate))
+  onUserLocationChange (coordinate){
   }
 
   onPressMap(coordinate){
-    alert(JSON.stringify(coordinate))
   }
 
   onMapReady(){
@@ -164,6 +167,8 @@ class RoutesScreen extends Component {
                 region={this._getRegionLocation()}
                 onMapReady={this.onMapReady.bind(this)}
                 onPress={this.onPressMap.bind(this)} 
+                showsUserLocation={true}
+                showsPointsOfInterest={true}
                 onUserLocationChange={this.onUserLocationChange.bind(this)} 
               >
                 

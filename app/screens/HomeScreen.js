@@ -17,7 +17,7 @@ class Home extends Component {
                 headerStyle: styles.headerStyle, 
                 headerTintColor: "#000", 
                 headerTitleStyle: styles.headerTitleStyle, 
-                headerLeft: (
+                headerRight: (
                             <TouchableOpacity
                                 style={styles.drawerToggle}
                                 onPress={() => {
