@@ -25,13 +25,6 @@ class CustomListView extends Component {
         });
     };
 
-    navigateTo = () => {
-        alert("teste")
-        this.props
-            .navigation
-            .navigate("SettingsScreen");
- 
-    }
 
     renderRow = (rowData, sectionID, rowID, highlightRow) => {
         return (
@@ -41,7 +34,7 @@ class CustomListView extends Component {
                 rowID ={rowID}
                 highlightRow={highlightRow}
                 _pressRow={this._pressRow.bind(this, rowData, rowID)}
-                navigateTo={this.navigateTo} />
+                navigateTo={this.props.navigateTo} />
         );
     };
 

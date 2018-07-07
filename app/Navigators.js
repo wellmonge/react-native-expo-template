@@ -15,6 +15,7 @@ import LoginScreen from './screens/LoginScreen';
 import SignUpScreen from './screens/SignUpScreen';  
 import AuthLoadingScreen from './screens/AuthLoadingScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import RoutesScreen from './screens/RoutesScreen';
 
 export const AuthStack = StackNavigator({
   AuthLoadingScreen: {
@@ -34,6 +35,9 @@ export const HomeStack = StackNavigator({
   },
   SettingsScreen:{ 
     screen: SettingsScreen
+  },
+  RoutesScreen: {
+    screen: RoutesScreen
   }
 });
 

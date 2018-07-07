@@ -31,14 +31,21 @@ class Home extends Component {
                             </TouchableOpacity>
             )};
     };
+    
 
     constructor(props) {
         super(props);
         this.state = {};
     }
 
+    navigateTo = () => {
+        this.props
+            .navigation
+            .navigate("RoutesScreen");
+    }
+
     render() {
-        return (<CustomListView data={_data} navigation={this.props.navigation} />);
+        return (<CustomListView data={_data} navigateTo={this.navigateTo} />);
     }
 }
 
