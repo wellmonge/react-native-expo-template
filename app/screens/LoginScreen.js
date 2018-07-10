@@ -24,18 +24,6 @@ class LoginScreen extends Component {
     };
   }
 
-  _retrieveData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('@MySuperStore:auth');
-      if (value !== null) {
-        // We have data!!
-        //alert(value);
-      }
-     } catch (error) {
-       // Error retrieving data
-     }
-  }
-
   _storeData = async () => {
     try {
       
@@ -45,10 +33,10 @@ class LoginScreen extends Component {
     }
   }
 
-  componentDidMount(){
-    const test = this._storeData();
-    const test2 = this._retrieveData();
-    alert(JSON.stringify(test2));
+  componentDidUpdate(){
+    const { auth } = this.state;
+  
+    alert(auth);
   }
   
   onUserChange(text) {
@@ -60,6 +48,7 @@ class LoginScreen extends Component {
   }
 
   onButtonPress = ()  => {
+    this._storeData();
     this.props.navigation.navigate('App');
   }
 

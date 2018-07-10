@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import {TouchableOpacity} from "react-native";
-import {FontAwesome} from "@expo/vector-icons";
+import React, { Component } from "react";
+import { TouchableOpacity,View , Text } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 import _data from '../models/dummyData';
 import CustomListView from "../components/CustomListView";
 
@@ -13,10 +13,16 @@ const styles = {
 
 class Home extends Component {
     static navigationOptions = ({ navigation }) => {
+       const auth = navigation.getParam('auth');
+       alert(auth)
         return {
                 headerStyle: styles.headerStyle, 
                 headerTintColor: "#000", 
                 headerTitleStyle: styles.headerTitleStyle, 
+                headerLeft: (
+                <View>
+                    <Text>{"auth.name"}</Text>
+                </View>),
                 headerRight: (
                             <TouchableOpacity
                                 style={styles.drawerToggle}

@@ -21,8 +21,8 @@ class AuthLoadingScreen extends React.Component {
     try {
       const value = await AsyncStorage.getItem('@MySuperStore:auth');
   
-      if (value !== null) {
-        this.props.navigation.navigate("App");
+      if (value !== null) {     
+        this.props.navigation.navigate("App", { auth: JSON.stringify(value) });
       }else{
         this.props.navigation.navigate("LoginScreen");
       }
