@@ -34,6 +34,7 @@ class SettingsScreen extends Component {
     super(props);
     this.state = {};
   }
+  
   render() {
     return (<View    
               style={{

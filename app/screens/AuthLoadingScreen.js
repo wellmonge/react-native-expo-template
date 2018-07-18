@@ -20,10 +20,10 @@ class AuthLoadingScreen extends React.Component {
   _retrieveData = async () => {
     try {
       const value = await AsyncStorage.getItem('@MySuperStore:auth');
-  
-      if (value !== null) {     
+      if (value !== null) {   
         this.props.navigation.navigate("App", { auth: JSON.stringify(value) });
       }else{
+        
         this.props.navigation.navigate("LoginScreen");
       }
      } catch (error) {
@@ -32,7 +32,7 @@ class AuthLoadingScreen extends React.Component {
   }
 
   componentDidMount() {
-     this._retrieveData();
+         this._retrieveData();
   }
 
   render() {

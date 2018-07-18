@@ -14,7 +14,7 @@ const styles = {
 class Home extends Component {
     static navigationOptions = ({ navigation }) => {
        const auth = navigation.getParam('auth');
-       alert(auth)
+        
         return {
                 headerStyle: styles.headerStyle, 
                 headerTintColor: "#000", 
@@ -47,7 +47,7 @@ class Home extends Component {
     navigateTo = () => {
         this.props
             .navigation
-            .navigate("RoutesScreen");
+            .navigate("RoutesScreen", {teste: "Fromhome"});
     }
 
     render() {

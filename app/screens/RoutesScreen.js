@@ -14,7 +14,9 @@ const styles = {
 
 class RoutesScreen extends Component {
   static navigationOptions = ({ navigation }) => {
-      return {
+    const teste = navigation.getParam("teste");
+    console.log(teste)  
+    return {
               headerStyle: styles.headerStyle, 
               headerTintColor: "#000", 
               headerTitleStyle: styles.headerTitleStyle, 

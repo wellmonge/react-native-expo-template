@@ -6,7 +6,7 @@ import {
   StackNavigator, 
   DrawerNavigator,
   TabNavigator,
-  TabBarBottom
+  TabBarBottom,
 } from "react-navigation";
 
 //## APP COMPONENTS ###//
@@ -16,6 +16,7 @@ import SignUpScreen from './screens/SignUpScreen';
 import AuthLoadingScreen from './screens/AuthLoadingScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import RoutesScreen from './screens/RoutesScreen';
+import QrCodeScreen from './screens/QrCodeScreen';
 
 export const AuthStack = StackNavigator({
   AuthLoadingScreen: {
@@ -53,10 +54,20 @@ export const RoutesStack = StackNavigator({
   }
 });
 
+export const QrCodeStack = StackNavigator({
+  QrCodeScreen: {
+    screen: QrCodeScreen
+  },
+});
+
+
 export const Tabs = TabNavigator(
   {
     Home: HomeStack,
-    Settings: SettingsStack
+    Settings: SettingsStack,
+    Routes: RoutesStack,
+    QrCode: QrCodeStack,
+
 
   },
   {
@@ -83,17 +94,23 @@ export const Tabs = TabNavigator(
   }
 );
 
+
 export const Drawer = DrawerNavigator(
   {
     Home: HomeStack,
     Settings: SettingsStack,
     Routes: RoutesStack,
+    QrCode: QrCodeStack,
   },    
   {
-    navigationOptions: ({ navigation }) => ({      
+    navigationOptions: ({ navigation }) => ({  
+          
       drawerLabel: ({ focused, tintColor }) => {
+      
+        const auth = navigation.getParam('auth');
         const { routeName } = navigation.state;
         if (routeName === 'Home') {
+          alert(auth)
           return "Pedidos";
         } else if(routeName === 'Settings') {
           return "Configurações";
