@@ -104,16 +104,13 @@ class RoutesScreen extends Component {
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
-      // alert("setState")
-      // this.setState({
-      //   errorMessage: 'Permission to access location was denied',
-      // });
+      alert("Permission to access location was denied")
+      
     }
 
     let location = await Location.getCurrentPositionAsync({});
     
     if (location){
-      // alert("setState")
       this.setState({ location });  
     }
 
@@ -122,9 +119,7 @@ class RoutesScreen extends Component {
 
   componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
-      // this.setState({
-      //   errorMessage: 'Oops, this will not work on Sketch in an Android emulator. Try it on your device!',
-      // });
+        alert("Oops, this will not work on Sketch in an Android emulator. Try it on your device!")
     } else {
       this._getLocationAsync();
     }
@@ -137,7 +132,6 @@ class RoutesScreen extends Component {
   }
 
   onMapReady(){
-    // alert("isloaded")
   }
 
   renderMarker(){

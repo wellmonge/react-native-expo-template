@@ -32,12 +32,6 @@ class LoginScreen extends Component {
       // Error saving data
     }
   }
-
-  componentDidUpdate(){
-    const { auth } = this.state;
-  
-    alert(auth);
-  }
   
   onUserChange(text) {
     alert(text)

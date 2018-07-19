@@ -17,9 +17,7 @@ class App extends Component {
 
   render() {
     const navigation =this.props.navigation;
-    
-    // alert(JSON.stringify(this.props.navigation))|
-    return (
+      return (
           <View style={{ flex: 1 }}>
             {Platform.OS === "ios" ? <Tabs /> : <Drawer />}
           </View>

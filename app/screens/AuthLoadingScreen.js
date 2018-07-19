@@ -32,7 +32,7 @@ class AuthLoadingScreen extends React.Component {
   }
 
   componentDidMount() {
-         this._retrieveData();
+    this._retrieveData();
   }
 
   render() {

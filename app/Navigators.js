@@ -110,12 +110,13 @@ export const Drawer = DrawerNavigator(
         const auth = navigation.getParam('auth');
         const { routeName } = navigation.state;
         if (routeName === 'Home') {
-          alert(auth)
           return "Pedidos";
         } else if(routeName === 'Settings') {
           return "Configurações";
         } else if(routeName === 'Routes') {
           return "Rotas";
+        } else if(routeName === 'QrCode'){
+          return "QrCode"
         }
       },
       drawerIcon: ({ focused, tintColor }) => {
@@ -125,8 +126,10 @@ export const Drawer = DrawerNavigator(
           iconName= "shopping-cart"
         } else if(routeName === 'Settings') {
           iconName= "cog"
-        }else if(routeName === 'Routes'){
+        } else if(routeName === 'Routes'){
           iconName= "map"
+        } else if(routeName === 'QrCode'){
+          iconName= "qrcode"
         }
 
         return <FontAwesome style={{ alignSelf: "flex-start" }} name={iconName} size={30} color={tintColor} />;
