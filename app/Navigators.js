@@ -17,6 +17,7 @@ import AuthLoadingScreen from './screens/AuthLoadingScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import RoutesScreen from './screens/RoutesScreen';
 import QrCodeScreen from './screens/QrCodeScreen';
+import { CustomDrawer } from "./components/CustomDrawer";
 
 export const AuthStack = StackNavigator({
   AuthLoadingScreen: {
@@ -103,10 +104,9 @@ export const Drawer = DrawerNavigator(
     QrCode: QrCodeStack,
   },    
   {
+    contentComponent: CustomDrawer,
     navigationOptions: ({ navigation }) => ({  
-          
       drawerLabel: ({ focused, tintColor }) => {
-      
         const auth = navigation.getParam('auth');
         const { routeName } = navigation.state;
         if (routeName === 'Home') {
@@ -131,7 +131,6 @@ export const Drawer = DrawerNavigator(
         } else if(routeName === 'QrCode'){
           iconName= "qrcode"
         }
-
         return <FontAwesome style={{ alignSelf: "flex-start" }} name={iconName} size={30} color={tintColor} />;
       },
       

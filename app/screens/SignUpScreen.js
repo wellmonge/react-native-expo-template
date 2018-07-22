@@ -7,7 +7,14 @@ class SignUpScreen extends Component {
         this.state = {  }
     }
     render() { 
-        return <Text>SignUpScreen</Text>;
+        return (
+            <View>
+            <FormLabel>Name</FormLabel>
+            <FormInput onChangeText={someFunction}/>
+            <FormValidationMessage>Error message</FormValidationMessage>
+
+            </View>
+        );
     }
 }
  

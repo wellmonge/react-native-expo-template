@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import {
   View,
   Text,
@@ -7,7 +6,7 @@ import {
   TextInput,
   AsyncStorage,
 } from "react-native";
-
+import { SocialIcon } from "react-native-elements";
 
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -102,6 +101,13 @@ class LoginScreen extends Component {
                 <Text style={styles.caption}>{"Entrar"}</Text>
               </View>
             </TouchableOpacity>
+          </View>
+          <View>
+            <SocialIcon
+                  title='Sign In With Facebook'
+                  button
+                  type='facebook'
+                />
           </View>
           <Text style={styles.message}>{this.props.message}</Text>
         </View>
