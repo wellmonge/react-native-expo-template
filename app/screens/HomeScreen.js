@@ -21,18 +21,8 @@ class Home extends Component {
                 headerStyle: styles.headerStyle, 
                 headerTintColor: "#000", 
                 headerTitleStyle: styles.headerTitleStyle, 
-                headerLeft: (
-                <View>
-                            <SearchBar
-                            lightTheme
-                            onChangeText={function name(params) {
-                                
-                            }}
-                            onClearText={function (params) {
-                                
-                            }}
-                            placeholder='Type Here...' />
-                </View>),
+                headerTitle: <SearchBar lightTheme onChangeText={function name(params) { }} onClearText={function (params) {}}
+                placeholder='Type Here...' />,
                 headerRight: (
                             <TouchableOpacity
                                 style={styles.drawerToggle}
