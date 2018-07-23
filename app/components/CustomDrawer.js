@@ -4,12 +4,17 @@ import {
     ScrollView,
     Text,
     View
-  } from "react-native";
-import { DrawerItems, SafeAreaView, StackActions, NavigationActions } from 'react-navigation';
-
-import { Avatar } from "react-native-elements";
-
-
+} 
+    from "react-native";
+import { 
+    DrawerItems, 
+    SafeAreaView, 
+    StackActions, 
+    NavigationActions 
+} 
+    from 'react-navigation';
+import { Avatar, SearchBar } 
+    from "react-native-elements";
 
 const styles = {
   container: {
@@ -31,8 +36,17 @@ export const CustomDrawer = (props) => (
             <Text>Header</Text>
         
         </View>
+        <SearchBar
+            lightTheme
+            onChangeText={function name(params) {
+                
+            }}
+            onClearText={function (params) {
+                
+            }}
+            placeholder='Type Here...' />
         <DrawerItems {...props} />
-        <View>
+        <View style={{flex: 2, margin:20}}>
             <Avatar
             small
             rounded

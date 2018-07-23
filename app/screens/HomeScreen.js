@@ -4,6 +4,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import _data from '../models/dummyData';
 import CustomListView from "../components/CustomListView";
 
+import { SearchBar } from 'react-native-elements'
+
 const styles = {
     iconAlign: { alignSelf: "center"},
     drawerToggle: { padding: 20 },
@@ -21,7 +23,15 @@ class Home extends Component {
                 headerTitleStyle: styles.headerTitleStyle, 
                 headerLeft: (
                 <View>
-                    <Text>{"auth.name"}</Text>
+                            <SearchBar
+                            lightTheme
+                            onChangeText={function name(params) {
+                                
+                            }}
+                            onClearText={function (params) {
+                                
+                            }}
+                            placeholder='Type Here...' />
                 </View>),
                 headerRight: (
                             <TouchableOpacity
