@@ -48,7 +48,7 @@ class AuthLoadingScreen extends React.Component {
       >
         <Icon
           style={{ alignSelf: "center" }}
-          name="motorcycle"
+          name="home"
           size={120}
           color="#fff"
         />

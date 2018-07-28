@@ -10,12 +10,13 @@ const styles = {
   headerTitleStyle: {fontWeight: "bold"},
 }
 
-class SettingsScreen extends Component {
+class ParkingLotScreen extends Component {
   static navigationOptions = ({ navigation }) => {
       return {
               headerStyle: styles.headerStyle, 
               headerTintColor: "#000", 
               headerTitleStyle: styles.headerTitleStyle, 
+              headerTitle: 'AMCOM',
               headerRight: (
                           <TouchableOpacity
                               style={styles.drawerToggle}
@@ -37,20 +38,20 @@ class SettingsScreen extends Component {
   }
   
   render() {
-    return (<View    
+    return (<View 
               style={{
                 flex: 1,
-                backgroundColor: "#c0392b"
+                backgroundColor: "#2980b9"
               }}
             >
               <Card
-                title='HELLO WORLD'>
+                title='PARKINGLOT'>
                 <Text style={{marginBottom: 10}}>
                   The idea with React Native Elements is more about component structure than actual design.
                 </Text>
                 <Button
                   icon={{name: 'code'}}
-                  backgroundColor='#03A9F4'
+                  backgroundColor='#e67e22'
                   buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                   title='VIEW NOW' />
               </Card>
@@ -58,4 +59,4 @@ class SettingsScreen extends Component {
   }
 }
 
-export default SettingsScreen;
+export default ParkingLotScreen;

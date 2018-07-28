@@ -1,2 +1,2 @@
-This project is a Expo React Native test
+This project is a for Amcom parkinglot
 

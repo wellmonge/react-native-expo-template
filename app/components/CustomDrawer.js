@@ -29,44 +29,15 @@ export const CustomDrawer = (props) => (
             <Avatar
             large
             rounded
-            source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
+            source={{uri: "https://aniversario.amcom.com.br/sistema/FotosColaboradores/wellinton.monge.jpg"}}
             onPress={() => console.log("Works!")}
             activeOpacity={0.7}
             />
-            <Text>Header</Text>
+            <Text>Wellinton Monge</Text>
         
         </View>
-        <SearchBar
-            lightTheme
-            onChangeText={function name(params) {
-                
-            }}
-            onClearText={function (params) {
-                
-            }}
-            placeholder='Type Here...' />
+
         <DrawerItems {...props} />
-        <View style={{flex: 2, margin:20}}>
-            <Avatar
-            small
-            rounded
-            icon={{name: 'menu'}}
-            onPress={() => {
-
-                const resetAction = StackActions.reset({
-                    index: 0,
-                    actions: [NavigationActions.navigate({ routeName: 'LoginScreen' })],
-                });
-                props.navigation.dispatch(resetAction);
-            }}
-            activeOpacity={0.7}
-            containerStyle={{flex: 2, marginLeft: 20, marginTop: 115}}
-            />
-
-            <Text>LogOut</Text>
-        
-        </View>
-        
     
     </SafeAreaView>
   </ScrollView>

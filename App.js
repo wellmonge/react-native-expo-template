@@ -19,7 +19,7 @@ class App extends Component {
     const navigation =this.props.navigation;
       return (
           <View style={{ flex: 1 }}>
-            {Platform.OS === "ios" ? <Tabs /> : <Drawer />}
+            {Platform.OS === "ios" ? <Tabs  /> : <Drawer />}
           </View>
     );
   }
