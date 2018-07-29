@@ -124,10 +124,9 @@ const styles = {
   container: {
     flex: 1,
     padding: 40,
-    // alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    backgroundColor: "#c0392b"
+    backgroundColor: "#2980b9"
   },
   header: {
     shadowColor: "#af5109",

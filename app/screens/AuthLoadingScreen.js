@@ -39,7 +39,7 @@ class AuthLoadingScreen extends React.Component {
     return (
       <View
         style={{
-          backgroundColor: "#EA2027",
+          backgroundColor: "#2980b9",
           flex: 1,
           justifyContent: "center",
           height: null,
