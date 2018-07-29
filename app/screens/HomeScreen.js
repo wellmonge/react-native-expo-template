@@ -5,6 +5,8 @@
     import { Card, Button, Avatar, Text, SearchBar } from 'react-native-elements'
     import Ionicons from "../../node_modules/@expo/vector-icons/Ionicons";
 
+    import RNTesseractOcr from 'react-native-tesseract-ocr';
+   var img = require("../images/teste.jpg");
 
     const styles = {
         iconAlign: (Platform.OS == "ios"? { padding: 5} : { alignSelf: "center"}),
@@ -61,10 +63,27 @@
         constructor(props) {
             super(props);
             this.state = {
-                collaborator : []
+                collaborator : [],
+                sOptions : {
+                    whitelist: null, 
+                    blacklist: '1234567890\'!"#$%&/()={}[]+*-_:;<>'
+                  }
             };
         }
-        
+
+        recognize = () => {
+            var imgPath ="../images/teste.jpg";
+            RNTesseractOcr.recognize(imgPath, "en", this.state.tessOptions)
+            .then((result) => {
+              this.setState({ ocrResult: result });
+              alert("OCR Result: ", result);
+            })
+            .catch((err) => {
+                alert("OCR Error: ", err);
+            })
+            .done();
+        }
+          
         _keyExtractor = (item, index) => item.Login;
         
         _retrieveData = async ()=> {
@@ -81,6 +100,7 @@
 
         componentDidMount(){
             this._retrieveData();  
+            //this.recognize();
         }
 
         render() {
@@ -134,7 +154,11 @@
                                 icon={{name: 'code'}}
                                 backgroundColor='#e67e22'
                                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                                title='Visualizar' />
+                                title='Visualizar'
+                                onPress={()=>{
+                                    
+                                }}
+                                />
                         </Card>
                         }}
                     />

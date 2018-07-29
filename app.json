@@ -1,5 +1,25 @@
 {
   "expo": {
-    "sdkVersion": "26.0.0"
+    "sdkVersion": "26.0.0",
+    "name": "amcom-parking-lot",
+    "slug": "amcom-parking-lot",
+    "version": "0.1.0",
+    "isDetached": true,
+    "detach": {
+      "scheme": "expbf9d1ea4e5e44862a9d61aca56a50cc2",
+      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.4.4-sdk26.0.0-3bd935c7-cdd3-4002-8e44-4df857a675f2.tar.gz",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.4.0-sdk26.0.0-e63d9209-070c-4118-b06b-c60e82da0b66.tar.gz"
+    },
+    "scheme": "expbf9d1ea4e5e44862a9d61aca56a50cc2",
+    "ios": {
+      "bundleIdentifier": "parkinglot",
+      "publishBundlePath": "ios/amcom-parking-lot/Supporting/shell-app.bundle",
+      "publishManifestPath": "ios/amcom-parking-lot/Supporting/shell-app-manifest.json"
+    },
+    "android": {
+      "package": "com.parkinglot",
+      "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
+      "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
+    }
   }
 }
