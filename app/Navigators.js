@@ -80,6 +80,10 @@ export const Tabs = TabNavigator(
           iconName = `ios-home${focused ? '' : '-outline'}`;
         } else if(routeName === 'Settings') {
           iconName = `ios-cog${focused ? '' : '-outline'}`;
+        } else if(routeName === 'Routes') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`;
+        } else if(routeName === 'QrCode') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`;
         }
         return <Ionicons name={iconName} size={30} color={tintColor} />;
       },
