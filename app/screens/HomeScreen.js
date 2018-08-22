@@ -14,6 +14,34 @@ const styles = {
     searchBar: { flex: 1}
 }
 
+const test = () => {
+    var iconPlatform = (<FontAwesome 
+                            style={styles.iconAlign} 
+                            name="bars" 
+                            size={28} 
+                            color="#333333"/>)
+
+    if (0 ==0) {
+        iconPlatform = (
+            <Ionicons
+                name="ios-home"
+                size={28} 
+                color="#333333"/>
+        );
+    }
+    return (
+        <TouchableOpacity
+            style={styles.drawerToggle}
+            onPress={() => {
+            navigation.navigate("DrawerToggle");
+        }}>
+         <Ionicons
+                name="ios-home"
+                size={28} 
+                color="#333333"/>
+        </TouchableOpacity>
+    ) 
+}
 
 class Home extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -33,34 +61,7 @@ class Home extends Component {
                 //             onClearText={function (params) {}}
                 //             placeholder='Buscar...' /></View>,
 
-                headerRight: (() => {
-                    var iconPlatform = (<FontAwesome 
-                                            style={styles.iconAlign} 
-                                            name="bars" 
-                                            size={28} 
-                                            color="#333333"/>)
-                
-                    if (0 ==0) {
-                        iconPlatform = (
-                            <Ionicons
-                                name="ios-home"
-                                size={28} 
-                                color="#333333"/>
-                        );
-                    }
-                    return (
-                        <TouchableOpacity
-                            style={styles.drawerToggle}
-                            onPress={() => {
-                            navigation.navigate("DrawerToggle");
-                        }}>
-                         <Ionicons
-                                name="ios-home"
-                                size={28} 
-                                color="#333333"/>
-                        </TouchableOpacity>
-                    ) 
-                })
+                headerRight: test()
             };
     };
     
