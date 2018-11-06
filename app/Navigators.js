@@ -1,65 +1,65 @@
-import React from "react";
-import { PlatformIOS } from 'react-native';
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { Text } from "react-native";
+import React from 'react'
+import { PlatformIOS } from 'react-native'
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
+import { Text } from 'react-native'
 import {
-  StackNavigator, 
+  StackNavigator,
   DrawerNavigator,
   TabNavigator,
   TabBarBottom,
-} from "react-navigation";
+} from 'react-navigation'
 
-//## APP COMPONENTS ###//
-import HomeScreen from './screens/HomeScreen';
-import LoginScreen from './screens/LoginScreen';
-import SignUpScreen from './screens/SignUpScreen';  
-import AuthLoadingScreen from './screens/AuthLoadingScreen';
-import SettingsScreen from './screens/SettingsScreen';
-import RoutesScreen from './screens/RoutesScreen';
-import QrCodeScreen from './screens/QrCodeScreen';
-import { CustomDrawer } from "./components/CustomDrawer";
+// ## APP COMPONENTS ###//
+import HomeScreen from './screens/HomeScreen'
+import LoginScreen from './screens/LoginScreen'
+import SignUpScreen from './screens/SignUpScreen'
+import AuthLoadingScreen from './screens/AuthLoadingScreen'
+import SettingsScreen from './screens/SettingsScreen'
+import RoutesScreen from './screens/RoutesScreen'
+import QrCodeScreen from './screens/QrCodeScreen'
+import { CustomDrawer } from './components/CustomDrawer'
 
 export const AuthStack = StackNavigator({
   AuthLoadingScreen: {
-    screen: AuthLoadingScreen
+    screen: AuthLoadingScreen,
   },
   LoginScreen: {
-    screen: LoginScreen
+    screen: LoginScreen,
   },
   SignUpScreen: {
-    screen: SignUpScreen
-  }
-});
+    screen: SignUpScreen,
+  },
+})
 
 export const HomeStack = StackNavigator({
   HomeScreen: {
-    screen: HomeScreen
+    screen: HomeScreen,
   },
-  SettingsScreen:{ 
-    screen: SettingsScreen
+  SettingsScreen: {
+    screen: SettingsScreen,
   },
   RoutesScreen: {
-    screen: RoutesScreen
-  }
-});
+    screen: RoutesScreen,
+  },
+})
 
 export const SettingsStack = StackNavigator({
-  SettingsScreen:{ 
-    screen: SettingsScreen
-  }
-});
+  SettingsScreen: {
+    screen: SettingsScreen,
+  },
+})
 
 export const RoutesStack = StackNavigator({
-  RoutesScreen:{ 
-    screen: RoutesScreen
-  }
-});
+  RoutesScreen: {
+    screen: RoutesScreen,
+  },
+})
 
 export const QrCodeStack = StackNavigator({
   QrCodeScreen: {
-    screen: QrCodeScreen
+    screen: QrCodeScreen,
   },
-});
+})
 
 
 export const Tabs = TabNavigator(
@@ -74,18 +74,18 @@ export const Tabs = TabNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
+        const { routeName } = navigation.state
+        let iconName
         if (routeName === 'Home') {
-          iconName = `ios-home${focused ? '' : '-outline'}`;
-        } else if(routeName === 'Settings') {
-          iconName = `ios-cog${focused ? '' : '-outline'}`;
-        } else if(routeName === 'Routes') {
-          iconName = `ios-cog${focused ? '' : '-outline'}`;
-        } else if(routeName === 'QrCode') {
-          iconName = `ios-cog${focused ? '' : '-outline'}`;
+          iconName = `ios-home${focused ? '' : '-outline'}`
+        } else if (routeName === 'Settings') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`
+        } else if (routeName === 'Routes') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`
+        } else if (routeName === 'QrCode') {
+          iconName = `ios-cog${focused ? '' : '-outline'}`
         }
-        return <Ionicons name={iconName} size={30} color={tintColor} />;
+        return <Ionicons name={iconName} size={30} color={tintColor} />
       },
     }),
     tabBarOptions: {
@@ -96,8 +96,8 @@ export const Tabs = TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
-  }
-);
+  },
+)
 
 
 export const Drawer = DrawerNavigator(
@@ -106,37 +106,38 @@ export const Drawer = DrawerNavigator(
     Settings: SettingsStack,
     Routes: RoutesStack,
     QrCode: QrCodeStack,
-  },    
+  },
   {
     contentComponent: CustomDrawer,
-    navigationOptions: ({ navigation }) => ({  
+    navigationOptions: ({ navigation }) => ({
       drawerLabel: ({ focused, tintColor }) => {
-        const auth = navigation.getParam('auth');
-        const { routeName } = navigation.state;
+        const auth = navigation.getParam('auth')
+        const { routeName } = navigation.state
         if (routeName === 'Home') {
-          return "Pedidos";
-        } else if(routeName === 'Settings') {
-          return "Configurações";
-        } else if(routeName === 'Routes') {
-          return "Rotas";
-        } else if(routeName === 'QrCode'){
-          return "QrCode"
+          return 'Pedidos'
+        } if (routeName === 'Settings') {
+          return 'Configurações'
+        } if (routeName === 'Routes') {
+          return 'Rotas'
+        } if (routeName === 'QrCode') {
+          return 'QrCode'
         }
       },
       drawerIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
+        const { routeName } = navigation.state
+        let iconName
         if (routeName === 'Home') {
-          iconName= "shopping-cart"
-        } else if(routeName === 'Settings') {
-          iconName= "cog"
-        } else if(routeName === 'Routes'){
-          iconName= "map"
-        } else if(routeName === 'QrCode'){
-          iconName= "qrcode"
+          iconName = 'shopping-cart'
+        } else if (routeName === 'Settings') {
+          iconName = 'cog'
+        } else if (routeName === 'Routes') {
+          iconName = 'map'
+        } else if (routeName === 'QrCode') {
+          iconName = 'qrcode'
         }
-        return <FontAwesome style={{ alignSelf: "flex-start" }} name={iconName} size={30} color={tintColor} />;
+        return <FontAwesome style={{ alignSelf: 'flex-start' }} name={iconName} size={30} color={tintColor} />
       },
-      
+
     }),
-  });
+  },
+)

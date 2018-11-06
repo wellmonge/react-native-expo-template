@@ -1,13 +1,16 @@
+// @flow
 import React, { Component } from "react";
-import { StatusBar, View, Platform } from "react-native";
-import { Provider, connect } from "react-redux";
-import { SwitchNavigator, StackNavigator } from 'react-navigation'; 
+
+import { View, Platform } from "react-native";
+
+// import { Provider, connect } from "react-redux";
+import { SwitchNavigator } from 'react-navigation'; 
 
 //## APP COMPONENTS ###//
 import { Drawer,Tabs, AuthStack } from "./app/Navigators";
 // import { Store } from "./app/SetupStore";
 
-class App extends Component<Props, State> {
+class App extends Component {
   static navigationOptions = ({ navigation }) => {
     
   }

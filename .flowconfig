@@ -3,6 +3,9 @@
 .*/*[.]android.js
 
 ; Ignore templates for 'react-native init'
+<PROJECT_ROOT>/node_modules/.*
+
+; Ignore templates for 'react-native init'
 <PROJECT_ROOT>/node_modules/react-native/local-cli/templates/.*
 
 ; Ignore RN jest
@@ -45,6 +48,10 @@ node_modules/react-native/flow/
 node_modules/expo/flow/
 
 [options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=app
+
+
 emoji=true
 
 module.system=haste
@@ -71,4 +78,4 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError
 
 
 [version]
-^0.85.0
+^0.66.0

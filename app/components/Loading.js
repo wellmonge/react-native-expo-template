@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   ActivityIndicator,
   View,
@@ -7,21 +7,17 @@ import {
 const styles = {
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   horizontal: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 10
-  }
+    padding: 10,
+  },
 }
 
-export const Loading = (props) => {
- 
-    return (
-      <View  style={[styles.container, styles.horizontal]}>
-        <ActivityIndicator animating={props.isLoading} size={props.type} color="#00ff00" /> 
-      </View>
-    )
-  
-}
+export const Loading = props => (
+  <View style={[styles.container, styles.horizontal]}>
+    <ActivityIndicator animating={props.isLoading} size={props.type} color="#00ff00" />
+  </View>
+)

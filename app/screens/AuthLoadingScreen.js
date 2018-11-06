@@ -1,53 +1,53 @@
-import React from "react";
+import React from 'react'
 import {
   ActivityIndicator,
   AsyncStorage,
   StatusBar,
   StyleSheet,
   View,
-  Text
-} from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+  Text,
+} from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 class AuthLoadingScreen extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
   };
+
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   _retrieveData = async () => {
     try {
-      const value = await AsyncStorage.getItem('@MySuperStore:auth');
-      if (value !== null) {   
-        this.props.navigation.navigate("App", { auth: JSON.stringify(value) });
-      }else{
-        
-        this.props.navigation.navigate("LoginScreen");
+      const value = await AsyncStorage.getItem('@MySuperStore:auth')
+      if (value !== null) {
+        this.props.navigation.navigate('App', { auth: JSON.stringify(value) })
+      } else {
+        this.props.navigation.navigate('LoginScreen')
       }
-     } catch (error) {
-      
+    } catch (error) {
+
     }
   }
 
   componentDidMount() {
-    this._retrieveData();
+    this._retrieveData()
   }
 
   render() {
     return (
       <View
         style={{
-          backgroundColor: "#EA2027",
+          backgroundColor: '#EA2027',
           flex: 1,
-          justifyContent: "center",
+          justifyContent: 'center',
           height: null,
-          width: null
+          width: null,
         }}
       >
         <Icon
-          style={{ alignSelf: "center" }}
+          style={{ alignSelf: 'center' }}
           name="motorcycle"
           size={120}
           color="#fff"
@@ -55,8 +55,8 @@ class AuthLoadingScreen extends React.Component {
         <ActivityIndicator />
         <StatusBar barStyle="default" />
       </View>
-    );
+    )
   }
 }
 
-export default AuthLoadingScreen;
+export default AuthLoadingScreen
