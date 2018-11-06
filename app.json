@@ -1,7 +1,7 @@
 {
   "expo": {
     "sdkVersion": "26.0.0",
-    "icon": "./app/img/Icon-1024.png",
+    "icon": "./app/assets/img/Icon-1024.png",
     "version": "1.0.0", 
     "ios": {
       "bundleIdentifier": "com.mongerzmobile.mycourse"
