@@ -10,13 +10,12 @@ const pureState = {
 
 const initialState = fromJS(pureState)
 
-export default authReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case AUTH_TO_SERVER:
-      const newState = state.set('user', action.payload)
-      return newState
-
-    default:
-      return state
+const authReducer = (state = initialState, action) => {
+  if (action.type === AUTH_TO_SERVER) {
+    const newState = state.set('user', action.payload)
+    return newState
   }
+  return state
 }
+
+export default authReducer

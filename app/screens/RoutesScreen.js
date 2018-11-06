@@ -5,8 +5,6 @@ import {
   MapView, Constants, Location, Permissions, Marker,
 } from 'expo'
 
-import { Loading } from '../components/Loading.js'
-
 const styles = {
   iconAlign: { alignSelf: 'center' },
   drawerToggle: { padding: 20 },
@@ -44,9 +42,45 @@ class RoutesScreen extends Component {
     super(props)
     this.state = {
       location: null,
-      errorMessage: null,
     }
   }
+
+  _getInitialRegion() {
+    const latitude = 37.78825
+    const longitude = -122.4324
+    const latitudeDelta = 0.0922
+    const longitudeDelta = 0.0421
+    return {
+      latitude,
+      longitude,
+      latitudeDelta,
+      longitudeDelta,
+    }
+  }
+
+  _getRegionLocation() {
+    const local = this.state.location
+    if (local && local.coords) {
+      latitude = local.coords.latitude
+      longitude = local.coords.longitude
+      return _getRegionForCoordinates([{ latitude, longitude }])
+    }
+
+    return null
+  }
+
+  _getLocationAsync = async () => {
+    const { status } = await Permissions.askAsync(Permissions.LOCATION)
+    if (status !== 'granted') {
+      alert('Permission to access location was denied')
+    }
+
+    const location = await Location.getCurrentPositionAsync({})
+
+    if (location) {
+      this.setState({ location })
+    }
+  };
 
   _getRegionForCoordinates(points) {
     // points should be an array of { latitude: X, longitude: Y }
@@ -81,44 +115,6 @@ class RoutesScreen extends Component {
       longitudeDelta: deltaY,
     }
   }
-
-  _getInitialRegion() {
-    const latitude = 37.78825
-    const longitude = -122.4324
-    const latitudeDelta = 0.0922
-    const longitudeDelta = 0.0421
-    return {
-      latitude,
-      longitude,
-      latitudeDelta,
-      longitudeDelta,
-    }
-  }
-
-  _getRegionLocation() {
-    const local = this.state.location
-    if (local && local.coords) {
-      latitude = local.coords.latitude
-      longitude = local.coords.longitude
-      return this._getRegionForCoordinates([{ latitude, longitude }])
-    }
-
-    return null
-  }
-
-  _getLocationAsync = async () => {
-    const { status } = await Permissions.askAsync(Permissions.LOCATION)
-    if (status !== 'granted') {
-      alert('Permission to access location was denied')
-    }
-
-    const location = await Location.getCurrentPositionAsync({})
-
-    if (location) {
-      this.setState({ location })
-    }
-  };
-
 
   componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {

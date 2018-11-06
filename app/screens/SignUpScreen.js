@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {
-  View, Text, ListView, TouchableOpacity,
+  View,
 } from 'react-native'
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 
 class SignUpScreen extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class SignUpScreen extends Component {
     return (
       <View>
         <FormLabel>Name</FormLabel>
-        <FormInput onChangeText={someFunction} />
+        <FormInput onChangeText={() => {}} />
         <FormValidationMessage>Error message</FormValidationMessage>
 
       </View>

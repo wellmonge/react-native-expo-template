@@ -45,9 +45,7 @@ class SettingsScreen extends Component {
           backgroundColor: '#c0392b',
         }}
       >
-        <Card
-          title="HELLO WORLD"
-        >
+        <Card title="HELLO WORLD">
           <Text style={{ marginBottom: 10 }}>
                   The idea with React Native Elements is more about component structure than actual design.
           </Text>
