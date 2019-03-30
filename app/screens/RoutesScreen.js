@@ -63,7 +63,7 @@ class RoutesScreen extends Component {
     if (local && local.coords) {
       latitude = local.coords.latitude
       longitude = local.coords.longitude
-      return _getRegionForCoordinates([{ latitude, longitude }])
+      return this._getRegionForCoordinates([{ latitude, longitude }])
     }
 
     return null

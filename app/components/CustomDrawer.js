@@ -33,7 +33,7 @@ export const CustomDrawer = props => (
           onPress={() => console.log('Works!')}
           activeOpacity={0.7}
         />
-        <Text>Header</Text>
+        <Text>Camilla Chann</Text>
 
       </View>
       <SearchBar
@@ -44,7 +44,7 @@ export const CustomDrawer = props => (
         onClearText={function (params) {
 
         }}
-        placeholder="Type Here..."
+        placeholder="Buscar..."
       />
       <DrawerItems {...props} />
       <View style={{ flex: 2, margin: 20 }}>
