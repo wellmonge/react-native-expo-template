@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, Platform } from 'react-native'
+import { TouchableOpacity, Platform,View } from 'react-native'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { SearchBar } from 'react-native-elements'
 import _data from '../models/dummyData'
@@ -14,7 +14,7 @@ const styles = {
   searchBar: { flex: 1 },
 }
 
-const test = () => {
+const headerLeft = (navigation) => {
   let iconPlatform = (
     <FontAwesome
       style={styles.iconAlign}
@@ -24,7 +24,7 @@ const test = () => {
     />
   )
 
-  if (0 === 0) {
+  if (Platform.OS === 'ios') {
     iconPlatform = (
       <Ionicons
         name="ios-home"
@@ -40,11 +40,7 @@ const test = () => {
         navigation.navigate('DrawerToggle')
       }}
     >
-      <Ionicons
-        name="ios-home"
-        size={28}
-        color="#333333"
-      />
+      {iconPlatform}
     </TouchableOpacity>
   )
 }
@@ -58,16 +54,16 @@ class Home extends Component {
         headerTintColor: '#000',
         headerTitleStyle: styles.headerTitleStyle,
 
-        // headerTitle: <View style={{ flex: 2, flexDirection: 'column' }}><SearchBar
-        //             lightTheme
-        //             round
-        //             containerStyle={styles.searchBar}
-        //             icon={{ type: 'font-awesome', name: 'search' }}
-        //             onChangeText={function name(params) { }}
-        //             onClearText={function (params) {}}
-        //             placeholder='Buscar...' /></View>,
+        headerTitle: <View style={{ flex: 2, flexDirection: 'column' }}><SearchBar
+                    lightTheme
+                    round
+                    containerStyle={styles.searchBar}
+                    icon={{ type: 'font-awesome', name: 'search' }}
+                    onChangeText={function name(params) { }}
+                    onClearText={function (params) {}}
+                    placeholder='Buscar...' /></View>,
 
-        headerRight: test(),
+        headerRight: headerLeft(navigation),
       }
     };
 
@@ -76,6 +72,8 @@ class Home extends Component {
       super(props)
       this.state = {}
     }
+
+    
 
     navigateTo = () => {
       this.props
