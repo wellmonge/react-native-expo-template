@@ -8,6 +8,7 @@ import { SwitchNavigator } from 'react-navigation';
 
 //## APP COMPONENTS ###//
 import { Drawer,Tabs, AuthStack } from "./app/Navigators";
+
 // import { Store } from "./app/SetupStore";
 
 class App extends Component {
@@ -15,10 +16,16 @@ class App extends Component {
     
   }
 
+  logOut = () => {
+    console.log('dsadsadsa')
+    this.props.navigation.navigate('LoginScreen')
+
+  }
+
   render() {
       return (
           <View style={{ flex: 1 }}>
-            {Platform.OS === "ios" ? <Tabs /> : <Drawer />}
+            {Platform.OS === "ios" ? <Tabs logOut={this.logOut} /> : <Drawer logOut={this.logOut} />}
           </View>
     );
   }
