@@ -47,27 +47,6 @@ export const CustomDrawer = props => (
         placeholder="Buscar..."
       />
       <DrawerItems {...props} />
-      <View style={{ flex: 2, margin: 20 }}>
-        <Avatar
-          small
-          rounded
-          icon={{ name: 'menu' }}
-          onPress={() => {
-            const resetAction = StackActions.reset({
-              index: 0,
-              actions: [NavigationActions.navigate({ routeName: 'LoginScreen' })],
-            })
-            props.navigation.dispatch(resetAction)
-          }}
-          activeOpacity={0.7}
-          containerStyle={{ flex: 2, marginLeft: 20, marginTop: 115 }}
-        />
-
-        <Text>LogOut</Text>
-
-      </View>
-
-
     </SafeAreaView>
   </ScrollView>
 )
