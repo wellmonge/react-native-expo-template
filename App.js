@@ -1,7 +1,6 @@
-// @flow
 import React, { Component } from "react";
 
-import { View, Platform } from "react-native";
+import { View, Platform, StatusBar } from "react-native";
 
 // import { Provider, connect } from "react-redux";
 import { SwitchNavigator } from 'react-navigation'; 
@@ -25,6 +24,8 @@ class App extends Component {
   render() {
       return (
           <View style={{ flex: 1 }}>
+            				<StatusBar backgroundColor="#000" translucent={true} hidden={false} barStyle="dark-content" />
+
             {Platform.OS === "ios" ? <Tabs logOut={this.logOut} /> : <Drawer logOut={this.logOut} />}
           </View>
     );

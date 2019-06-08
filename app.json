@@ -1,18 +1,35 @@
 {
   "expo": {
-    "sdkVersion": "26.0.0",
-    "icon": "./app/assets/android/logo-app.png",
+    "sdkVersion": "33.0.0",
     "version": "1.0.0", 
-    "ios": {
-      "bundleIdentifier": "com.mongerzmobile.mycourse",
-      "icon":"./app/assets/android/logo-app.png"
+    "icon": "./app/assets/ic_superbaba.png",
+    "splash": {
+      "icon": "./app/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+      },
+    "platforms": [
+        "ios",
+        "android",
+        "web"
+      ],
+      "updates": {
+        "fallbackToCacheTimeout": 0
+      },
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "supportsTablet": true,
 
-    },
-    "android": {
-      "package": "com.mongerzmobile.mycourse",
-      "icon":"./app/assets/android/logo-app.png"
+        "bundleIdentifier": "com.mongerzmobile.mycourse",
+        "icon":"./app/assets/android/logo-app.png"
 
-    }
+      },
+      "android": {
+        "package": "com.mongerzmobile.mycourse",
+        "icon":"./app/assets/android/logo-app.png"
+      }
   }
  
 }

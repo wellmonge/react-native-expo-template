@@ -1,18 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 
 const styles = {
 	iconAlign: { alignSelf: 'center' },
-	container: { padding: 20 }
+	container: { padding: Platform.OS === 'ios' ? 5 : 20, margin: Platform.OS === 'ios' ? 5 : 0 }
 };
 
-const HeaderButton = ({ navigation, iconName, iconColor, onPress }) => {
+const HeaderButton = ({ navigation, iconNameAndroid, iconNameIOS, iconColor, onPress }) => {
 	const defaultOnPress = () => {
-    navigation.navigate('DrawerToggle')
-  };
-  onPress = onPress ? onPress : defaultOnPress;
-	const iconPlatform = Platform.OS === 'ios'? <Ionicons name={'ios-' + iconName} size={28} color={iconColor} /> : <FontAwesome style={styles.iconAlign} name={iconName} size={28} color={iconColor} />;
+		navigation.navigate('DrawerToggle');
+	};
+	onPress = onPress ? onPress : defaultOnPress;
+	if (!iconNameIOS || !iconNameAndroid) return null;
+	const iconPlatform =
+		Platform.OS === 'ios' ? (
+			<Ionicons name={iconNameIOS} size={28} color={iconColor} />
+		) : (
+			<FontAwesome style={styles.iconAlign} name={iconNameAndroid} size={28} color={iconColor} />
+		);
 
 	return (
 		<TouchableOpacity style={styles.container} onPress={onPress}>

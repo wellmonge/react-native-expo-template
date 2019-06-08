@@ -44,8 +44,7 @@
 
 [libs]
 node_modules/react-native/Libraries/react-native/react-native-interface.js
-node_modules/react-native/flow/
-node_modules/expo/flow/
+
 
 [options]
 module.system.node.resolve_dirname=node_modules

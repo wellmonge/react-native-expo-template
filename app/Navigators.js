@@ -1,7 +1,5 @@
 import React from 'react';
-import { PlatformIOS } from 'react-native';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { Text } from 'react-native';
 import { StackNavigator, DrawerNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 // ## APP COMPONENTS ###//
@@ -69,17 +67,17 @@ export const Tabs = TabNavigator(
 	},
 	{
 		navigationOptions: ({ navigation }) => ({
-			tabBarIcon: ({ focused, tintColor }) => {
+			tabBarIcon: ({ tintColor }) => {
 				const { routeName } = navigation.state;
 				let iconName;
 				if (routeName === 'Home') {
-					iconName = `ios-home${focused ? '' : '-outline'}`;
+					iconName = `ios-home`;
 				} else if (routeName === 'Settings') {
-					iconName = `ios-cog${focused ? '' : '-outline'}`;
+					iconName = `ios-cog`;
 				} else if (routeName === 'Routes') {
-					iconName = `ios-cog${focused ? '' : '-outline'}`;
+					iconName = `ios-car`;
 				} else if (routeName === 'QrCode') {
-					iconName = `ios-cog${focused ? '' : '-outline'}`;
+					iconName = `ios-qr-scanner`;
 				}
 				return <Ionicons name={iconName} size={30} color={tintColor} />;
 			}
@@ -105,8 +103,7 @@ export const Drawer = DrawerNavigator(
 	{
 		contentComponent: CustomDrawer,
 		navigationOptions: ({ navigation }) => ({
-			drawerLabel: ({ focused, tintColor }) => {
-				const auth = navigation.getParam('auth');
+			drawerLabel: ({  }) => {
 				const { routeName } = navigation.state;
 				if (routeName === 'Home') {
 					return 'Pedidos';
@@ -121,7 +118,7 @@ export const Drawer = DrawerNavigator(
 					return 'QrCode';
 				}
 			},
-			drawerIcon: ({ focused, tintColor }) => {
+			drawerIcon: ({ tintColor }) => {
 				const { routeName } = navigation.state;
 				let iconName;
 				if (routeName === 'Home') {

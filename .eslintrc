@@ -3,8 +3,6 @@
   "extends": "airbnb",
   "plugins": [
     "react",
-    "flowtype",
-    "jsx-a11y",
     "import"
   ],
   "rules": {

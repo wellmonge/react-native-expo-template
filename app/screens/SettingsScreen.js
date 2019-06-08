@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { Card, Button } from 'react-native-elements'
 import { FontAwesome } from '@expo/vector-icons'
+import HeaderButton from '../components/HeaderButton';
 
 const styles = {
   iconAlign: { alignSelf: 'center' },
@@ -15,21 +16,15 @@ class SettingsScreen extends Component {
     headerStyle: styles.headerStyle,
     headerTintColor: '#000',
     headerTitleStyle: styles.headerTitleStyle,
-    headerRight: (
-      <TouchableOpacity
-        style={styles.drawerToggle}
-        onPress={() => {
-          navigation.navigate('DrawerToggle')
-        }}
-      >
-        <FontAwesome
-          style={styles.iconAlign}
-          name="bars"
-          size={28}
-          color="#333333"
-        />
-      </TouchableOpacity>
-    ),
+    headerRight: HeaderButton({
+      navigation: navigation,
+      iconNameAndroid: 'menu',
+      iconColor: '#000',
+      onPress: () => {
+        AsyncStorage.clear();
+        navigation.navigate('auth');
+      }
+    }),
   });
 
   constructor(props) {

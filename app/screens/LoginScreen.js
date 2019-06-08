@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, TextInput, AsyncStorage } from 'react-native';
 
 import { SocialIcon } from 'react-native-elements';
-import { LinearGradient } from "expo";
+import { LinearGradient } from 'expo';
 import { FontAwesome } from '@expo/vector-icons';
 
 class LoginScreen extends Component {
@@ -24,24 +24,18 @@ class LoginScreen extends Component {
 				'@MySuperStore:auth',
 				'{name:Wellinton Monge, email:wellinton@monge.com.br, password:1234}'
 			);
+			this.props.navigation.navigate('App', { auth: this.props.navigation });
 		} catch (error) {
 			// Error saving data
 		}
 	};
 
-	onUserChange(text) {
+	onUserChange(text) {}
 
-  }
-
-	onPasswordChange(text) {
-    
-	}
+	onPasswordChange(text) {}
 
 	onButtonPress = () => {
 		this._storeData();
-		console.log(this.props.navigation);
-
-		this.props.navigation.navigate('App', { auth: this.props.navigation });
 	};
 
 	render() {
@@ -110,7 +104,7 @@ const styles = {
 		flex: 1,
 		padding: 40,
 		justifyContent: 'center',
-		flexDirection: 'column',
+		flexDirection: 'column'
 	},
 	header: {
 		shadowColor: '#af5109',

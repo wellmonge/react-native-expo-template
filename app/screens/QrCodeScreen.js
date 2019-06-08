@@ -11,9 +11,9 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-import { FontAwesome } from '@expo/vector-icons'
 
 import { BarCodeScanner, Permissions } from 'expo'
+import HeaderButton from '../components/HeaderButton';
 
 const styles = StyleSheet.create({
   iconAlign: { alignSelf: 'center' },
@@ -58,21 +58,15 @@ class QrCodeScreen extends Component {
       headerStyle: styles.headerStyle,
       headerTintColor: '#000',
       headerTitleStyle: styles.headerTitleStyle,
-      headerRight: (
-        <TouchableOpacity
-          style={styles.drawerToggle}
-          onPress={() => {
-            navigation.navigate('DrawerToggle')
-          }}
-        >
-          <FontAwesome
-            style={styles.iconAlign}
-            name="bars"
-            size={28}
-            color="#333333"
-          />
-        </TouchableOpacity>
-      ),
+      headerRight: HeaderButton({
+				navigation: navigation,
+				iconNameAndroid: 'menu',
+				iconColor: '#000',
+				onPress: () => {
+					AsyncStorage.clear();
+					navigation.navigate('auth');
+				}
+			}),
     });
 
     constructor(props) {

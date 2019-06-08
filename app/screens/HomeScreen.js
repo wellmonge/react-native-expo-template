@@ -1,52 +1,16 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Platform, View ,AsyncStorage} from 'react-native';
-import { SearchBar } from 'react-native-elements';
-import HeaderButton from "../components/HeaderButton";
+import { View, AsyncStorage, StatusBar } from 'react-native';
+import HeaderButton from '../components/HeaderButton';
 import _data from '../models/dummyData';
 import CustomListView from '../components/CustomListView';
 
 const styles = {
+	container: { flex: 1 },
 	iconAlign: { alignSelf: 'center' },
 	drawerToggle: { padding: 20 },
 	headerStyle: { backgroundColor: '#fff' },
-	headerTitleStyle: { fontWeight: 'bold' },
-	searchBar: { flex: 1 }
-};
-
-const logout = (navigation) => {
-  let iconPlatform = <FontAwesome style={styles.iconAlign} name="bars" size={28} color="#333333" />;
-
-	if (Platform.OS === 'ios') {
-		iconPlatform = <Ionicons name="ios-home" size={28} color="#333333" />;
-	}
-	return (
-		<TouchableOpacity
-			style={styles.drawerToggle}
-			onPress={() => {
-				navigation.navigate('home');
-			}}
-		>
-			{iconPlatform}
-		</TouchableOpacity>
-	);
-};
-
-const headerRight = (navigation) => {
-	let iconPlatform = <FontAwesome style={styles.iconAlign} name="bars" size={28} color="#333333" />;
-
-	if (Platform.OS === 'ios') {
-		iconPlatform = <Ionicons name="ios-home" size={28} color="#333333" />;
-	}
-	return (
-		<TouchableOpacity
-			style={styles.drawerToggle}
-			onPress={() => {
-				navigation.navigate('DrawerToggle');
-			}}
-		>
-			{iconPlatform}
-		</TouchableOpacity>
-	);
+	headerTitleStyle: { fontWeight: 'bold' }
+	// searchBar: { flex: 1 }
 };
 
 class Home extends Component {
@@ -57,25 +21,24 @@ class Home extends Component {
 			headerStyle: styles.headerStyle,
 			headerTintColor: '#000',
 			headerTitleStyle: styles.headerTitleStyle,
-			headerRight: HeaderButton({ navigation: navigation, iconName: "sign-out", iconColor: "#000", onPress: () => {  
-				AsyncStorage.clear();
-				navigation.navigate('auth') } }),
+			headerRight: HeaderButton({
+				navigation: navigation,
+				iconNameAndroid: 'sign-out',
+				iconColor: '#000',
+				iconNameIOS: 'ios-log-out',
+				onPress: () => {
+					AsyncStorage.clear();
+					navigation.navigate('auth');
+				}
+			}),
 
-			headerTitle: (
-				<View style={{ flex: 2, flexDirection: 'column' }}>
-					<SearchBar
-						lightTheme
-						round
-						containerStyle={styles.searchBar}
-						icon={{ type: 'font-awesome', name: 'search' }}
-						onChangeText={function name(params) {}}
-						onClearText={function(params) {}}
-						placeholder="Buscar..."
-					/>
-				</View>
-			),
+			headerTitle: <View style={{ flex: 2, flexDirection: 'column' }} />,
 
-			headerLeft: HeaderButton({ navigation: navigation, iconName: "bars", iconColor: "#000" })
+			headerLeft: HeaderButton({
+				navigation: navigation,
+				iconNameAndroid: 'bars',
+				iconColor: '#000'
+			})
 		};
 	};
 
@@ -89,7 +52,11 @@ class Home extends Component {
 	};
 
 	render() {
-		return <CustomListView data={_data} navigateTo={this.navigateTo} />;
+		return (
+			<View style={styles.container}>
+				<CustomListView data={_data} navigateTo={this.navigateTo} />
+			</View>
+		);
 	}
 }
 

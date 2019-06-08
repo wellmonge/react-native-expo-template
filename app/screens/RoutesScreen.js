@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { View, Platform, TouchableOpacity } from 'react-native'
-import { FontAwesome } from '@expo/vector-icons'
+import { View, Platform,  } from 'react-native'
 import {
   MapView, Constants, Location, Permissions, Marker,
 } from 'expo'
+import HeaderButton from '../components/HeaderButton';
 
 const styles = {
   iconAlign: { alignSelf: 'center' },
@@ -20,21 +20,15 @@ class RoutesScreen extends Component {
       headerStyle: styles.headerStyle,
       headerTintColor: '#000',
       headerTitleStyle: styles.headerTitleStyle,
-      headerRight: (
-        <TouchableOpacity
-          style={styles.drawerToggle}
-          onPress={() => {
-            navigation.navigate('DrawerToggle')
-          }}
-        >
-          <FontAwesome
-            style={styles.iconAlign}
-            name="bars"
-            size={28}
-            color="#333333"
-          />
-        </TouchableOpacity>
-      ),
+      headerRight: HeaderButton({
+				navigation: navigation,
+				iconNameAndroid: 'menu',
+				iconColor: '#000',
+				onPress: () => {
+					AsyncStorage.clear();
+					navigation.navigate('auth');
+				}
+			}),
     }
   };
 
